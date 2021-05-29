@@ -1,0 +1,9 @@
+apply plugin: 'com.android.library'
+
+apply from: '../common.gradle'
+
+dependencies {
+    implementation project(':core:shared_ui')
+    implementation project(':core:data')
+    implementation project(':core:domain')
+}
