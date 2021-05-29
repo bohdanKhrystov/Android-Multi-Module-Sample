@@ -1,0 +1,18 @@
+plugins {
+    id 'com.android.application'
+}
+
+apply from: "$rootProject.projectDir/ui.gradle"
+
+android {
+    defaultConfig {
+        applicationId "com.bohdanhub.multimodulestarter"
+    }
+}
+
+dependencies {
+    implementation project(':core')
+    implementation project(':features')
+    implementation project(':features:auth')
+    implementation project(':features:repositories')
+}
