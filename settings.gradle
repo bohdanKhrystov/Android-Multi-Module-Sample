@@ -1,7 +1,7 @@
 include ':features:repositories'
 include ':features:auth'
 include ':features'
-include ':core:shared_ui'
+include ':core:shared'
 include ':core:data'
 include ':core:domain'
 include ':core'
