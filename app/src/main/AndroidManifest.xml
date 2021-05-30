@@ -13,8 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MultimoduleStarter">
 
-        <activity android:name=".MainActivity" />
-
     </application>
 
 </manifest>

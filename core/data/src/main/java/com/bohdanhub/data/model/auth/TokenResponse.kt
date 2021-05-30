@@ -1,4 +1,4 @@
-package com.bohdanhub.data.network.model.auth
+package com.bohdanhub.data.model.auth
 
 import com.google.gson.annotations.SerializedName
 

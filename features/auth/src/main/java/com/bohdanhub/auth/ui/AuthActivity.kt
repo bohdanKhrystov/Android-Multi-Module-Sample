@@ -3,14 +3,16 @@ package com.bohdanhub.auth.ui
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import com.bohdanhub.auth.R
 import com.bohdanhub.auth.databinding.ActivityAuthBinding
 import com.bohdanhub.data.network.api.AuthApi
-import com.bohdanhub.share_ui.base.BaseActivity
+import com.bohdanhub.share_ui.base.BaseViewModelActivity
 import com.bohdanhub.share_ui.system.IntentFactory
 
-class AuthActivity : BaseActivity() {
+class AuthActivity : BaseViewModelActivity<AuthViewModel>() {
 
     lateinit var binding: ActivityAuthBinding
 
@@ -31,9 +33,13 @@ class AuthActivity : BaseActivity() {
         getAccessToken(getAuthCode(intent))
     }
 
+    override fun getViewModelClass(): Class<AuthViewModel> = AuthViewModel::class.java
+
     private fun getAccessToken(code: String?) {
         if (code != null) {
-            //TODO: get access token
+            viewModel.getAccessToken(code).observe(this, Observer {
+                Log.d("TokenDebug","Token = ${it.token}")
+            })
         }
     }
 

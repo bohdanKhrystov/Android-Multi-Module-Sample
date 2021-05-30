@@ -4,4 +4,5 @@ apply from: "$rootProject.projectDir/common.gradle"
 
 dependencies {
     implementation project(':core:shared')
+    implementation project(':core:domain')
 }

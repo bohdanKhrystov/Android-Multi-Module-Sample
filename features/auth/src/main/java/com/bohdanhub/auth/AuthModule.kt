@@ -11,5 +11,5 @@ interface AuthModule {
 
     @PerActivity
     @ContributesAndroidInjector(modules = [AuthActivityModule::class])
-    fun bindAccountsActivity(): AuthActivity
+    fun bindAuthActivity(): AuthActivity
 }
