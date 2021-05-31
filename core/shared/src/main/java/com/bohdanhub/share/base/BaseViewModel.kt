@@ -1,4 +1,4 @@
-package com.bohdanhub.share_ui.base
+package com.bohdanhub.share.base
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler

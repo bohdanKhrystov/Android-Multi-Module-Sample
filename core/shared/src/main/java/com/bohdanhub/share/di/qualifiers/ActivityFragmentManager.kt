@@ -1,4 +1,4 @@
-package com.bohdanhub.share_ui.di.qualifiers
+package com.bohdanhub.share.di.qualifiers
 
 import javax.inject.Qualifier
 

@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.bohdanhub.domain.entity.auth.AccessToken
 import com.bohdanhub.domain.entity.auth.TokenRequest
 import com.bohdanhub.domain.usecase.BaseUseCase
-import com.bohdanhub.share_ui.base.BaseViewModel
+import com.bohdanhub.share.base.BaseViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

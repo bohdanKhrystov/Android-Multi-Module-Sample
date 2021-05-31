@@ -2,9 +2,9 @@ package com.bohdanhub.auth.ui
 
 import androidx.lifecycle.ViewModel
 import com.bohdanhub.data.usecase.UseCaseModule
-import com.bohdanhub.share_ui.base.BaseActivity
-import com.bohdanhub.share_ui.di.base.BaseActivityModule
-import com.bohdanhub.share_ui.di.keys.ViewModelKey
+import com.bohdanhub.share.base.BaseActivity
+import com.bohdanhub.share.di.base.BaseActivityModule
+import com.bohdanhub.share.di.keys.ViewModelKey
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

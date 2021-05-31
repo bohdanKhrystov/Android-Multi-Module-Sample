@@ -1,4 +1,4 @@
-package com.bohdanhub.share_ui
+package com.bohdanhub.share
 
 import org.junit.Test
 

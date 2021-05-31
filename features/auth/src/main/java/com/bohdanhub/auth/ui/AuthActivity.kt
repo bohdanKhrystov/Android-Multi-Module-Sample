@@ -9,8 +9,8 @@ import androidx.lifecycle.Observer
 import com.bohdanhub.auth.R
 import com.bohdanhub.auth.databinding.ActivityAuthBinding
 import com.bohdanhub.data.network.api.AuthApi
-import com.bohdanhub.share_ui.base.BaseViewModelActivity
-import com.bohdanhub.share_ui.system.IntentFactory
+import com.bohdanhub.share.base.BaseViewModelActivity
+import com.bohdanhub.share.system.IntentFactory
 
 class AuthActivity : BaseViewModelActivity<AuthViewModel>() {
 

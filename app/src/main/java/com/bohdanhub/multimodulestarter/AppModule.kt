@@ -2,8 +2,8 @@ package com.bohdanhub.multimodulestarter
 
 import android.app.Application
 import android.content.Context
-import com.bohdanhub.share_ui.di.qualifiers.AppContext
-import com.bohdanhub.share_ui.di.scopes.PerApplication
+import com.bohdanhub.share.di.qualifiers.AppContext
+import com.bohdanhub.share.di.scopes.PerApplication
 import dagger.Binds
 import dagger.Module
 

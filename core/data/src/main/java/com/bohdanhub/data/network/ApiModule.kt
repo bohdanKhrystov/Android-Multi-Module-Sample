@@ -1,7 +1,7 @@
 package com.bohdanhub.data.network
 
 import com.bohdanhub.data.network.api.AuthApi
-import com.bohdanhub.share_ui.di.scopes.PerApplication
+import com.bohdanhub.share.di.scopes.PerApplication
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit

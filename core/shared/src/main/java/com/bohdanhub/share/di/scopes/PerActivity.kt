@@ -1,4 +1,4 @@
-package com.bohdanhub.share_ui.di.scopes
+package com.bohdanhub.share.di.scopes
 
 import javax.inject.Scope
 

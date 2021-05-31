@@ -1,7 +1,7 @@
-package com.bohdanhub.share_ui.di.scopes
+package com.bohdanhub.share.di.scopes
 
 import javax.inject.Scope
 
 @Scope
 @Retention(AnnotationRetention.RUNTIME)
-annotation class PerFragment
+annotation class PerChildFragment

@@ -1,4 +1,4 @@
-package com.bohdanhub.share_ui.system
+package com.bohdanhub.share.system
 
 import android.content.Intent
 import android.net.Uri

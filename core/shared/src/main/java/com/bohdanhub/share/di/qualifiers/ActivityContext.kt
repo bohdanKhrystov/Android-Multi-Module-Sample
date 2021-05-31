@@ -1,7 +1,7 @@
-package com.bohdanhub.share_ui.di.qualifiers
+package com.bohdanhub.share.di.qualifiers
 
 import javax.inject.Qualifier
 
 @Qualifier
 @Retention(AnnotationRetention.RUNTIME)
-annotation class AppContext
+annotation class ActivityContext

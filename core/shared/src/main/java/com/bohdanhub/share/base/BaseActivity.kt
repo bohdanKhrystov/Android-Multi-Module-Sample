@@ -1,4 +1,4 @@
-package com.bohdanhub.share_ui.base
+package com.bohdanhub.share.base
 
 import android.widget.Toast
 import androidx.annotation.StringRes

@@ -1,4 +1,4 @@
-package com.bohdanhub.share_ui.di.keys
+package com.bohdanhub.share.di.keys
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

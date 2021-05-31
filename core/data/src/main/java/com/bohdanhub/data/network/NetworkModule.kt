@@ -2,7 +2,7 @@ package com.bohdanhub.data.network
 
 import com.bohdanhub.data.BuildConfig
 import com.bohdanhub.data.network.interceptor.UnauthorizedInterceptor
-import com.bohdanhub.share_ui.di.scopes.PerApplication
+import com.bohdanhub.share.di.scopes.PerApplication
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides

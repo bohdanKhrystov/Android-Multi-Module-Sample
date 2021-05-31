@@ -1,14 +1,14 @@
-package com.bohdanhub.share_ui.di.base
+package com.bohdanhub.share.di.base
 
 import android.annotation.SuppressLint
 import android.content.Context
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
-import com.bohdanhub.share_ui.base.BaseActivity
-import com.bohdanhub.share_ui.di.ViewModelProviderFactory
-import com.bohdanhub.share_ui.di.qualifiers.ActivityContext
-import com.bohdanhub.share_ui.di.qualifiers.ActivityFragmentManager
-import com.bohdanhub.share_ui.di.scopes.PerActivity
+import com.bohdanhub.share.base.BaseActivity
+import com.bohdanhub.share.di.ViewModelProviderFactory
+import com.bohdanhub.share.di.qualifiers.ActivityContext
+import com.bohdanhub.share.di.qualifiers.ActivityFragmentManager
+import com.bohdanhub.share.di.scopes.PerActivity
 import com.tallium.eubank.core.shared.base.IUi
 import dagger.Binds
 import dagger.Module

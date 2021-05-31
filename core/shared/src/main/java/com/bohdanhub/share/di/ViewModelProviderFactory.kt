@@ -1,4 +1,4 @@
-package com.bohdanhub.share_ui.di
+package com.bohdanhub.share.di
 
 import android.app.Application
 import androidx.lifecycle.ViewModel

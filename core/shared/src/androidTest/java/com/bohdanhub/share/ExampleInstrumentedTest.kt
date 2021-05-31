@@ -1,4 +1,4 @@
-package com.bohdanhub.share_ui
+package com.bohdanhub.share
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
