@@ -16,8 +16,8 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="www.multimoduleapp.org"
-                    android:scheme="https" />
+                    android:host="@string/CALLBACK_HOST"
+                    android:scheme="@string/CALLBACK_SCHEME" />
             </intent-filter>
         </activity>
     </application>
