@@ -15,9 +15,13 @@ class AppNavigatorImpl @Inject constructor() : AppNavigator {
         })
     }
 
-    override fun navigateToAuth(context: Context) {
+    override fun navigateToAuth(context: Context, isNewTask: Boolean) {
         context.startActivity(AuthActivity.getIntent(context).apply {
-            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+            flags =
+                if (isNewTask)
+                    Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                else
+                    Intent.FLAG_ACTIVITY_CLEAR_TOP
         })
     }
 }

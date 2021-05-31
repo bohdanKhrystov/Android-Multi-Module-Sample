@@ -17,7 +17,7 @@ class App : DaggerApplication() {
         UnauthorizedInterceptor.UnauthorizedObserver.subscribe(object :
             UnauthorizedInterceptor.UnauthorizedObserver.UnauthorizedListener {
             override fun onUnauthorized() {
-                appNavigator.navigateToAuth(this@App)
+                appNavigator.navigateToAuth(this@App, isNewTask = true)
             }
         })
     }
