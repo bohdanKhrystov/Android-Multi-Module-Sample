@@ -12,7 +12,7 @@
             android:id="@+id/login_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login with OAuth"
+            android:text="@string/auth__primary_button"
             android:textAllCaps="false"
             android:textSize="32sp"
             app:layout_constraintBottom_toBottomOf="parent"

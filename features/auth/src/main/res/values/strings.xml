@@ -1,1 +1,4 @@
-<resources></resources>
+<resources>
+    <string name="auth__title">Login to github.com</string>
+    <string name="auth__primary_button">Login with OAuth</string>
+</resources>

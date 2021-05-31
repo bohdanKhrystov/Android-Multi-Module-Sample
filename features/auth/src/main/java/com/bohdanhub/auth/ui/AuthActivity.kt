@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.bohdanhub.auth.R
@@ -25,6 +24,8 @@ class AuthActivity : BaseViewModelActivity<AuthViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_auth)
+
+        setTitle(R.string.auth__title)
 
         binding.loginButton.setOnClickListener {
             startActivity(IntentFactory.buildBrowserIntent(AuthApi.buildAuthUrl()))

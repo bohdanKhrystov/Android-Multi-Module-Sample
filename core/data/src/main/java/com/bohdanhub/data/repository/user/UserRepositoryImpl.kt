@@ -23,8 +23,8 @@ class UserRepositoryImpl @Inject constructor(
             handleApiRequest(api.getAllRepositories(userName))
         return response.map { webRepo ->
             Repository(
-                name = webRepo.name,
-                description = webRepo.description
+                name = webRepo.name ?: "",
+                description = webRepo.description ?: ""
             )
         }
     }
