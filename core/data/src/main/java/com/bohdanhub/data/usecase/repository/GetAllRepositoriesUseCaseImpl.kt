@@ -14,7 +14,7 @@ class GetAllRepositoriesUseCaseImpl @Inject constructor(
 ) : GetAllRepositoriesUseCase {
 
     override suspend fun execute(request: AllRepositoriesRequest): List<Repository> {
-        val userName = getUserUseCase.execute(UserRequest()).id.toString()
+        val userName = getUserUseCase.execute(UserRequest()).login
         return repository.getRepositories(userName)
     }
 }

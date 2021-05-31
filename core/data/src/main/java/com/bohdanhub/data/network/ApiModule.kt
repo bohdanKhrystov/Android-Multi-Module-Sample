@@ -6,6 +6,7 @@ import com.bohdanhub.share.di.scopes.PerApplication
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
+import javax.inject.Named
 
 @Module
 object ApiModule {
@@ -13,10 +14,12 @@ object ApiModule {
     @JvmStatic
     @Provides
     @PerApplication
-    fun provideAuthApi(retrofit: Retrofit): AuthApi = retrofit.create(AuthApi::class.java)
+    fun provideAuthApi(@Named("default") retrofit: Retrofit): AuthApi =
+        retrofit.create(AuthApi::class.java)
 
     @JvmStatic
     @Provides
     @PerApplication
-    fun provideNetworkApi(retrofit: Retrofit): UserApi = retrofit.create(UserApi::class.java)
+    fun provideNetworkApi(@Named("api") retrofit: Retrofit): UserApi =
+        retrofit.create(UserApi::class.java)
 }

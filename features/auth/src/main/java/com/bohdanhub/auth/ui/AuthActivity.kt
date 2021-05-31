@@ -1,5 +1,6 @@
 package com.bohdanhub.auth.ui
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -10,9 +11,14 @@ import com.bohdanhub.auth.R
 import com.bohdanhub.auth.databinding.ActivityAuthBinding
 import com.bohdanhub.data.network.api.AuthApi
 import com.bohdanhub.share.base.BaseViewModelActivity
+import com.bohdanhub.share.navigation.AppNavigator
 import com.bohdanhub.share.system.IntentFactory
+import javax.inject.Inject
 
 class AuthActivity : BaseViewModelActivity<AuthViewModel>() {
+
+    @Inject
+    lateinit var appNavigator: AppNavigator
 
     lateinit var binding: ActivityAuthBinding
 
@@ -38,7 +44,8 @@ class AuthActivity : BaseViewModelActivity<AuthViewModel>() {
     private fun getAccessToken(code: String?) {
         if (code != null) {
             viewModel.getAccessToken(code).observe(this, Observer {
-                Log.d("TokenDebug","Token = ${it.token}")
+                Log.d("TokenDebug", "Token = ${it.token}")
+                appNavigator.navigateToAllRepositories(this@AuthActivity)
             })
         }
     }
@@ -47,5 +54,11 @@ class AuthActivity : BaseViewModelActivity<AuthViewModel>() {
         val uri = Uri.parse(intent?.toUri(0).toString())
         val code: String? = uri.getQueryParameter("code")
         return code
+    }
+
+    companion object {
+        fun getIntent(context: Context): Intent {
+            return Intent(context, AuthActivity::class.java)
+        }
     }
 }

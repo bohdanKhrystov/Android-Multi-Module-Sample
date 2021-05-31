@@ -1,7 +1,7 @@
 package com.bohdanhub.data.network
 
 import com.bohdanhub.data.BuildConfig
-import com.bohdanhub.data.network.interceptor.AuthInterceptor
+import com.bohdanhub.data.network.interceptor.HeadersInterceptor
 import com.bohdanhub.data.network.interceptor.UnauthorizedInterceptor
 import com.bohdanhub.domain.storage.TokenStorage
 import com.bohdanhub.share.di.scopes.PerApplication
@@ -11,10 +11,12 @@ import dagger.Provides
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Named
 
 @Module(
     includes = [
@@ -41,8 +43,8 @@ object NetworkModule {
     @JvmStatic
     @Provides
     @PerApplication
-    fun provideAuthInterceptor(storage: TokenStorage): AuthInterceptor {
-        return AuthInterceptor(storage)
+    fun provideAuthInterceptor(storage: TokenStorage): HeadersInterceptor {
+        return HeadersInterceptor(storage)
     }
 
 
@@ -50,7 +52,7 @@ object NetworkModule {
     @Provides
     @PerApplication
     fun provideHttpClient(
-        authInterceptor: AuthInterceptor
+        authInterceptor: HeadersInterceptor
     ): OkHttpClient {
         val httpBuilder = OkHttpClient.Builder()
 
@@ -62,6 +64,14 @@ object NetworkModule {
         httpBuilder.readTimeout(60, TimeUnit.SECONDS)
         httpBuilder.writeTimeout(60, TimeUnit.SECONDS)
 
+        if (BuildConfig.DEBUG) {
+            httpBuilder.addInterceptor(
+                HttpLoggingInterceptor().apply {
+                    level = HttpLoggingInterceptor.Level.BODY
+                }
+            )
+        }
+
         return httpBuilder.build()
     }
 
@@ -69,17 +79,32 @@ object NetworkModule {
     @JvmStatic
     @Provides
     @PerApplication
+    @Named("default")
     fun provideRetrofit(
         gson: Gson,
         httpClient: OkHttpClient
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BuildConfig.SERVER_URL)
+            .baseUrl(BuildConfig.GITHUB_COM)
             .addConverterFactory(ScalarsConverterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(httpClient)
             .build()
     }
 
-
+    @JvmStatic
+    @Provides
+    @PerApplication
+    @Named("api")
+    fun provideApiRetrofit(
+        gson: Gson,
+        httpClient: OkHttpClient
+    ): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(BuildConfig.API_GITHUB_COM)
+            .addConverterFactory(ScalarsConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .client(httpClient)
+            .build()
+    }
 }

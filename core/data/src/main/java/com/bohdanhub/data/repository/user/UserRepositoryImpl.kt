@@ -1,6 +1,6 @@
 package com.bohdanhub.data.repository.user
 
-import com.bohdanhub.data.model.repository.AllRepositoriesResponse
+import com.bohdanhub.data.model.repository.RepositoryResponse
 import com.bohdanhub.data.model.user.UserResponse
 import com.bohdanhub.data.network.api.UserApi
 import com.bohdanhub.data.network.util.handleApiRequest
@@ -15,11 +15,12 @@ class UserRepositoryImpl @Inject constructor(
 
     override suspend fun getUser(): User {
         val response: UserResponse = handleApiRequest(api.getUser())
-        return User()
+        return User(response.login)
     }
 
     override suspend fun getRepositories(userName: String): List<Repository> {
-        val response: AllRepositoriesResponse = handleApiRequest(api.getAllRepositories(userName))
-        return listOf()
+        val response: List<RepositoryResponse> =
+            handleApiRequest(api.getAllRepositories(userName))
+        return response.map { webRepo -> Repository(webRepo.name) }
     }
 }
