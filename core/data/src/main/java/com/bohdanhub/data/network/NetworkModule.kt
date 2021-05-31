@@ -1,7 +1,9 @@
 package com.bohdanhub.data.network
 
 import com.bohdanhub.data.BuildConfig
+import com.bohdanhub.data.network.interceptor.AuthInterceptor
 import com.bohdanhub.data.network.interceptor.UnauthorizedInterceptor
+import com.bohdanhub.domain.storage.TokenStorage
 import com.bohdanhub.share.di.scopes.PerApplication
 import com.google.gson.Gson
 import dagger.Module
@@ -36,14 +38,23 @@ object NetworkModule {
             .create()
     }
 
+    @JvmStatic
+    @Provides
+    @PerApplication
+    fun provideAuthInterceptor(storage: TokenStorage): AuthInterceptor {
+        return AuthInterceptor(storage)
+    }
+
 
     @JvmStatic
     @Provides
     @PerApplication
     fun provideHttpClient(
+        authInterceptor: AuthInterceptor
     ): OkHttpClient {
         val httpBuilder = OkHttpClient.Builder()
 
+        httpBuilder.addInterceptor(authInterceptor)
         httpBuilder.addInterceptor(UnauthorizedInterceptor())
 
         httpBuilder.callTimeout(60, TimeUnit.SECONDS)
@@ -69,4 +80,6 @@ object NetworkModule {
             .client(httpClient)
             .build()
     }
+
+
 }
