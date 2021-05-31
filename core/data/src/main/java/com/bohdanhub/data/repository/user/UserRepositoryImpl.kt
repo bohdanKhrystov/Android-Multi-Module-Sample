@@ -21,6 +21,11 @@ class UserRepositoryImpl @Inject constructor(
     override suspend fun getRepositories(userName: String): List<Repository> {
         val response: List<RepositoryResponse> =
             handleApiRequest(api.getAllRepositories(userName))
-        return response.map { webRepo -> Repository(webRepo.name) }
+        return response.map { webRepo ->
+            Repository(
+                name = webRepo.name,
+                description = webRepo.description
+            )
+        }
     }
 }

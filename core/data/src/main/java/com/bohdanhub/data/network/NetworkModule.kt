@@ -43,7 +43,7 @@ object NetworkModule {
     @JvmStatic
     @Provides
     @PerApplication
-    fun provideAuthInterceptor(storage: TokenStorage): HeadersInterceptor {
+    fun provideHeadersInterceptor(storage: TokenStorage): HeadersInterceptor {
         return HeadersInterceptor(storage)
     }
 

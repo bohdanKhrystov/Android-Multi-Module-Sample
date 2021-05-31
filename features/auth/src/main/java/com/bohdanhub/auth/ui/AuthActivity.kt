@@ -44,7 +44,6 @@ class AuthActivity : BaseViewModelActivity<AuthViewModel>() {
     private fun getAccessToken(code: String?) {
         if (code != null) {
             viewModel.getAccessToken(code).observe(this, Observer {
-                Log.d("TokenDebug", "Token = ${it.token}")
                 appNavigator.navigateToAllRepositories(this@AuthActivity)
             })
         }
